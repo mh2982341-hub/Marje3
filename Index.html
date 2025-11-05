@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُراجِع - نظام المراجعة الذكية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- الشريط الجانبي للإنجازات -->
+        <div class="sidebar">
+            <div class="user-info">
+                <h2>مرحباً بك!</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="label">النقاط</span>
+                        <span class="value" id="points">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="label">التسلسل</span>
+                        <span class="value" id="streak">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievements">
+                <h3>الإنجازات</h3>
+                <div class="badges" id="badges">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </div>
+        </div>
+
+        <!-- المنطقة الرئيسية -->
+        <div class="main-content">
+            <header>
+                <h1>مُراجِع</h1>
+                <div class="due-cards">
+                    <span id="dueCount">0</span> بطاقة للمراجعة اليوم
+                </div>
+            </header>
+
+            <!-- منطقة البطاقة -->
+            <div class="card-container" id="cardContainer">
+                <div class="card" id="flashcard">
+                    <div class="card-front" id="cardFront">
+                        <!-- سيتم ملؤها بالجافاسكريبت -->
+                    </div>
+                    <div class="card-back" id="cardBack" style="display: none;">
+                        <!-- سيتم ملؤها بالجافاسكريبت -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- أزرار التحكم -->
+            <div class="controls">
+                <button id="showAnswerBtn" class="btn btn-primary">إظهار الإجابة</button>
+                
+                <div class="rating-buttons" id="ratingButtons" style="display: none;">
+                    <button class="btn btn-hard" data-rating="hard">صعب</button>
+                    <button class="btn btn-good" data-rating="good">جيد</button>
+                    <button class="btn btn-easy" data-rating="easy">سهل</button>
+                </div>
+            </div>
+
+            <!-- أزرار الإضافة -->
+            <div class="actions">
+                <button id="addCardBtn" class="btn btn-accent">+ إنشاء بطاقة جديدة</button>
+                <button id="importBtn" class="btn btn-secondary">استيراد من Anki</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إنشاء بطاقة جديدة -->
+    <div id="cardModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>إنشاء بطاقة جديدة</h2>
+            <form id="cardForm">
+                <div class="form-group">
+                    <label for="cardFrontInput">الوجه (السؤال):</label>
+                    <textarea id="cardFrontInput" required placeholder="اكتب سؤال البطاقة هنا..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cardBackInput">الظهر (الإجابة):</label>
+                    <textarea id="cardBackInput" required placeholder="اكتب إجابة البطاقة هنا..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="btn btn-secondary">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">حفظ البطاقة</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
