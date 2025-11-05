@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+    color: #2C3E3D;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* الشريط الجانبي */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #5B7B7A 0%, #4a6362 100%);
+    color: white;
+    padding: 2rem;
+    box-shadow: 2px 0 15px rgba(91, 123, 122, 0.3);
+}
+
+.user-info h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+}
+
+.stat .label {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.stat .value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #D4A76A;
+}
+
+.achievements h3 {
+    margin-bottom: 1rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.badge {
+    width: 55px;
+    height: 55px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.badge.earned {
+    background: #D4A76A;
+    border-color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(212, 167, 106, 0.4);
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+header h1 {
+    color: #5B7B7A;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.due-cards {
+    color: #6C757D;
+    font-size: 1.2rem;
+    background: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    display: inline-block;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* منطقة البطاقة */
+.card-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.card {
+    width: 500px;
+    height: 300px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(91, 123, 122, 0.2);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 3px solid #9DB5B2;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5B7B7A, #D4A76A);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(91, 123, 122, 0.3);
+}
+
+.card-front, .card-back {
+    font-size: 1.3rem;
+    width: 100%;
+    line-height: 1.8;
+}
+
+.card-back {
+    color: #5B7B7A;
+    font-weight: 500;
+}
+
+/* أزرار التحكم */
+.controls {
+    text-align: center;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.rating-buttons {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #5B7B7A, #4a6362);
+    color: white;
+    box-shadow: 0 5px 15px rgba(91, 123, 122, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(91, 123, 122, 0.4);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, #D4A76A, #c0955a);
+    color: white;
+    box-shadow: 0 5px 15px rgba(212, 167, 106, 0.3);
+}
+
+.btn-accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212, 167, 106, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #9DB5B2, #8ba19e);
+    color: white;
+    box-shadow: 0 5px 15px rgba(157, 181, 178, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(157, 181, 178, 0.4);
+}
+
+.btn-hard {
+    background: linear-gradient(135deg, #E74C3C, #c0392b);
+    color: white;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-good {
+    background: linear-gradient(135deg, #5B7B7A, #4a6362);
+    color: white;
+    box-shadow: 0 5px 15px rgba(91, 123, 122, 0.3);
+}
+
+.btn-easy {
+    background: linear-gradient(135deg, #27AE60, #219652);
+    color: white;
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-hard:hover, .btn-good:hover, .btn-easy:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* أزرار الإضافة */
+.actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* النافذة المنبثقة */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 61, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    border: 2px solid #9DB5B2;
+}
+
+.modal-content h2 {
+    margin-bottom: 1.5rem;
+    color: #5B7B7A;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #2C3E3D;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #9DB5B2;
+    border-radius: 12px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #5B7B7A;
+    box-shadow: 0 0 0 3px rgba(91, 123, 122, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        order: 2;
+        padding: 1.5rem;
+    }
+    
+    .main-content {
+        order: 1;
+        padding: 1.5rem;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+        padding: 2rem;
+    }
+    
+    .actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 200px;
+    }
+    
+    .rating-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stats {
+        justify-content: center;
+    }
+  }
